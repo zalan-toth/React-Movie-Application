@@ -1,11 +1,11 @@
 # React Application for Movies
-#### Practical Lab Work for Web App Development at SETU
+#### Assignment for Web App Development at SETU
 
 Feel free to use this code as you wish.
 
 
 ## Features
-Get Movies and their information through TMDB API (Favourite films + review feature)
+Get Movies and their information through TMDB API
 
 
 ## Screenshot from the app running
