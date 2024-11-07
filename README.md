@@ -1,6 +1,8 @@
 # React Application for Movies
 #### Assignment for Web App Development at SETU
 
+This repository was cloned. Original repository: https://github.com/zalan-toth/react-movie-labs 
+
 # Assignment 1 - ReactJS app.
 
 Name: Zalán Tóth (20102768)
