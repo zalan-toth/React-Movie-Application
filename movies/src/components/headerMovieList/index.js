@@ -26,6 +26,7 @@ const Header = (props ) => {
             <Typography variant="h4" component="h3">
                 {title}
             </Typography>
+
             <IconButton aria-label="go forward" onClick={() => navigate(+1)}>
                 <ArrowForwardIcon color="primary" fontSize="large" />
             </IconButton>
