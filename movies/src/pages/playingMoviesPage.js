@@ -17,17 +17,17 @@ const PlayingMoviesPage = (props) => {
     if (isError) {
         return <h1>{error.message}</h1>
     }
-    const trendingTodayMovies = data.results;
+    const playingMovies = data.results;
 
     // Redundant, but necessary to avoid app crashing.
-    const favorites = trendingTodayMovies.filter(m => m.favorite)
+    const favorites = playingMovies.filter(m => m.favorite)
     localStorage.setItem('favorites', JSON.stringify(favorites))
     //const addToFavorites = (movieId) => true
 
     return (
         <PageTemplate
             title="Movies Now Playing"
-            movies={trendingTodayMovies}
+            movies={playingMovies}
             action={(movie) => {
                 return (
                     <>
