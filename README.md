@@ -37,10 +37,10 @@ Name: Zalán Tóth (20102768)
 
 [ List the __new routes__ supported by your app and state the associated page.]
 
-+ /movies/watchlist
-+ /movies/upcoming
-+ /movies/trending/today
-+ /movies/playing
++ /movies/watchlist - List of movies that contains the ones that the user wants to watch!
++ /movies/upcoming - Provides upcoming movies
++ /movies/trending/today - Provides movies that are trending today
++ /movies/playing - Provides movies that are currently playing
 + /similar OR /similar/:id OR /movies/:id/similar - Provides similar movies to the given one (stateful and parameterised)
 
 [If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
