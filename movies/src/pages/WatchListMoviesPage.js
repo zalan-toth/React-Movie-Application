@@ -6,6 +6,8 @@ import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
 import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
+import AddToWatchIcon from "../components/cardIcons/addToWatch";
+import AddToFavorites from "../components/cardIcons/addToFavorites";
 
 const WatchListMoviesPage = () => {
     const {favorites: movieIds } = useContext(MoviesContext);
@@ -33,6 +35,7 @@ const WatchListMoviesPage = () => {
 
     //const toDo = () => true;
 
+    //<RemoveFromWatchlist movie={movie} />
     return (
         <PageTemplate
             title="Movies To Watch!"
@@ -40,7 +43,7 @@ const WatchListMoviesPage = () => {
             action={(movie) => {
                 return (
                     <>
-                        <RemoveFromFavorites movie={movie} />
+                        <AddToFavorites movie={movie} />
                         <WriteReview movie={movie} />
                     </>
                 );
