@@ -28,19 +28,20 @@ Name: Zalán Tóth (20102768)
 
 [ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
 
-e.g.
-+ Discover list of movies - discover/movie
-+ Movie details - movie/:id
-+ Movie genres = /genre/movie/list
++ Getting similar movies to a given one - movie/${id}/similar
++ Getting movies that are currently playing - movie/now_playing
++ Getting movies that are trending today - trending/movie/day
++ Getting upcoming movies - movie/upcoming
 
 ## Routing.
 
 [ List the __new routes__ supported by your app and state the associated page.]
 
-+ /blogs - displays all published blogs.
-+ /blogs/:id - displays a particular blog.
-+ /blogs/:id/comments - detail view of a particular blog and its comments.
-+ etc.
++ /movies/watchlist
++ /movies/upcoming
++ /movies/trending/today
++ /movies/playing
++ /similar OR /similar/:id OR /movies/:id/similar - Provides similar movies to the given one (stateful and parameterised)
 
 [If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
 
