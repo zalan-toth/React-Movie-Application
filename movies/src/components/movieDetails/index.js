@@ -76,6 +76,22 @@ const MovieDetails = ({ movie }) => {
                     </li>
                 ))}
             </Paper>
+
+
+            <Paper
+                component="ul"
+                sx={{...root}}
+            >
+                <li>
+                    <Chip label="Production Companies" sx={{...chip}} color="secondary" />
+                </li>
+                {movie.production_companies.map((company) => (
+                    <li key={company.name}>
+                        <Chip label={company.name + " (" + company.origin_country + ")"} sx={{...chip}} />
+                    </li>
+                ))}
+            </Paper>
+
             <Fab
                 color="secondary"
                 variant="extended"
