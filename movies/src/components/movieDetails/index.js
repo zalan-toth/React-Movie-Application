@@ -10,6 +10,8 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
 import {Language} from "@mui/icons-material";
+import {Link} from "react-router-dom";
+import RateReviewIcon from "@mui/icons-material/RateReview";
 
 const root = {
     display: "flex",
@@ -91,6 +93,15 @@ const MovieDetails = ({ movie }) => {
                     </li>
                 ))}
             </Paper>
+
+            <Link
+                to={`/similar`}
+                state={{
+                    movieId: movie.id,
+                }}
+            >
+                <p>Similar Movies</p>
+            </Link>
 
             <Fab
                 color="secondary"
