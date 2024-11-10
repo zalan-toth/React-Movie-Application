@@ -41,7 +41,7 @@ const SimilarMoviesPage = (props) => {
         return <h1>{similarMoviesError.message}</h1>;
     }
 
-    const kl = "Similar Movies to " + movie
+    const kl = `Similar Movies to ${movie.title}`;
 
     return (
         <PageTemplate
