@@ -18,6 +18,9 @@ const MoviesContextProvider = (props) => {
         setFavorites(newFavorites)
     };
 
+    const getToWatchList = () => {
+        return toWatch;
+    }
     console.log(toWatch)
     const addToWatch = (movie) => {
         let newToWatch = [];
@@ -49,6 +52,7 @@ const MoviesContextProvider = (props) => {
                 addToWatch,
                 removeFromFavorites,
                 addReview,
+                getToWatchList
             }}
         >
             {props.children}

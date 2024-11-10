@@ -10,10 +10,17 @@ const AddToWatchIcon = ({ movie }) => {
         e.preventDefault();
         context.addToWatch(movie);
     };
+    if (!context.getToWatchList().includes(movie.id)){
+        return (
+            <IconButton aria-label="add to watch list" onClick={handleAddToWatch}>
+                <PlaylistAddIcon color="primary" fontSize="large" />
+            </IconButton>
+        );
+    }
 
     return (
-        <IconButton aria-label="add to watch list" onClick={handleAddToWatch}>
-            <PlaylistAddIcon color="primary" fontSize="large" />
+        <IconButton aria-label="add to watch list" onClick={handleAddToWatch} disabled>
+            <PlaylistAddIcon fontSize="large" />
         </IconButton>
     );
 };
