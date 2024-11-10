@@ -12,10 +12,10 @@ import RemoveFromToWatchIcon from "../components/cardIcons/removeFromToWatch";
 import RemoveFromToWatch from "../components/cardIcons/removeFromToWatch";
 
 const WatchListMoviesPage = () => {
-    const {favorites: movieIds } = useContext(MoviesContext);
+    const {toWatch: movieIds } = useContext(MoviesContext);
 
     // Create an array of queries and run in parallel.
-    const favoriteMovieQueries = useQueries(
+    const toWatchMovieQueries = useQueries(
         movieIds.map((movieId) => {
             return {
                 queryKey: ["movie", { id: movieId }],
@@ -24,13 +24,13 @@ const WatchListMoviesPage = () => {
         })
     );
     // Check if any of the parallel queries is still loading.
-    const isLoading = favoriteMovieQueries.find((m) => m.isLoading === true);
+    const isLoading = toWatchMovieQueries.find((m) => m.isLoading === true);
 
     if (isLoading) {
         return <Spinner />;
     }
 
-    const movies = favoriteMovieQueries.map((q) => {
+    const movies = toWatchMovieQueries.map((q) => {
         q.data.genre_ids = q.data.genres.map(g => g.id)
         return q.data
     });
