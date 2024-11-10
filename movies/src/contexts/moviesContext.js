@@ -21,6 +21,9 @@ const MoviesContextProvider = (props) => {
     const getToWatchList = () => {
         return toWatch;
     }
+    const getFavorites = () => {
+        return favorites;
+    }
     console.log(toWatch)
     const addToWatch = (movie) => {
         let newToWatch = [];
@@ -39,6 +42,11 @@ const MoviesContextProvider = (props) => {
             (mId) => mId !== movie.id
         ) )
     };
+    const removeFromToWatch = (movie) => {
+        setToWatch( toWatch.filter(
+            (mId) => mId !== movie.id
+        ) )
+    };
     const addReview = (movie, review) => {
         setMyReviews( {...myReviews, [movie.id]: review } )
     };
@@ -51,8 +59,10 @@ const MoviesContextProvider = (props) => {
                 addToFavorites,
                 addToWatch,
                 removeFromFavorites,
+                removeFromToWatch,
                 addReview,
-                getToWatchList
+                getToWatchList,
+                getFavorites
             }}
         >
             {props.children}
