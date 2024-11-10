@@ -13,7 +13,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import PlayingMoviesPage from "./pages/playingMoviesPage";
-import WatchListMoviesPage from "./pages/WatchListMoviesPage";
+import WatchListMoviesPage from "./pages/watchListMoviesPage";
 
 const queryClient = new QueryClient({
     defaultOptions: {
