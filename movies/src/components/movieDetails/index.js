@@ -100,7 +100,14 @@ const MovieDetails = ({ movie }) => {
                     movieId: movie.id,
                 }}
             >
-                <p>Similar Movies</p>
+                <p>Similar Movies - Stateful</p>
+            </Link>
+
+
+            <Link
+                to={`/movies/${movie.id}/similar`}
+            >
+                <p>Similar Movies - Parameterised (This can be shared!)</p>
             </Link>
 
             <Fab
