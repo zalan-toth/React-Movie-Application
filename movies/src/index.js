@@ -57,6 +57,7 @@ const App = () => {
         </QueryClientProvider>
     );
 };
-
+//TODO get popular people
+//TODO get person details + image
 const rootElement = createRoot( document.getElementById("root") )
 rootElement.render(<App />);
