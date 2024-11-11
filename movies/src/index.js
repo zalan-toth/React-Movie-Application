@@ -16,6 +16,7 @@ import PlayingMoviesPage from "./pages/playingMoviesPage";
 import WatchListMoviesPage from "./pages/watchListMoviesPage";
 import SimilarMoviesPage from "./pages/similarMoviesPage";
 import LatestMoviePage from "./pages/latestMovieDetailsPage";
+import MovieCreditsPage from "./pages/movieCreditsPage";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -45,6 +46,7 @@ const App = () => {
                         <Route path="/similar/:id" element={ <SimilarMoviesPage /> } />
                         <Route path="/movies/latest" element={<LatestMoviePage />} />
                         <Route path="/movies/:id/similar" element={ <SimilarMoviesPage /> } />
+                        <Route path="/movies/:id/credits" element={ <MovieCreditsPage /> } />
                         <Route path="/movies/:id" element={<MoviePage />} />
                         <Route path="/" element={<HomePage />} />
                         <Route path="*" element={ <Navigate to="/" /> } />
