@@ -8,8 +8,7 @@ import Spinner from '../components/spinner'
 import {get} from "react-hook-form";
 // import useMovie from "../hooks/useMovie";   Redundant
 
-const MoviePage = (props) => {
-    const { id } = useParams();
+const LatestMoviePage = () => {
     //console.log(id)
 
     /*const movieQuery = (id === "latest") ? useQuery("latestMovie", getLatestMovie) :
@@ -23,10 +22,10 @@ const MoviePage = (props) => {
     );*/
 
     const { data: movie, error, isLoading, isError } = useQuery(
-        ["movie", { id: id }],
-        getMovie
+        ["movie"],
+        getLatestMovie
     );
-
+    
     if (isLoading) {
         return <Spinner />;
     }
@@ -52,4 +51,4 @@ const MoviePage = (props) => {
     );
 };
 
-export default MoviePage;
+export default LatestMoviePage;
