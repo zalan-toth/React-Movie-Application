@@ -110,6 +110,12 @@ const MovieDetails = ({ movie }) => {
                 <p>Similar Movies - Parameterised (This can be shared!)</p>
             </Link>
 
+            <Link
+                to={`/movies/${movie.id}/credits`}
+            >
+                <p>Credits</p>
+            </Link>
+
             <Fab
                 color="secondary"
                 variant="extended"
