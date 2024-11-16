@@ -1,13 +1,24 @@
 import React from "react";
-import Movie from "../movieCard/";
-import Grid from "@mui/material/Grid2";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
 
 const PeopleList = (props) => {
     //<Person key={m.id} person={m} action={props.action} />
-    let peopleCards = props.people.map((m) => (
-        <Grid key={m.id} size={{xs: 12, sm: 6, md: 4, lg: 3, xl: 2}} sx={{padding: "20px"}}>
-            <p>Hello</p>
-        </Grid>
+    let peopleCards = props.people.map((p) => (
+        <TableRow
+            key={p.name}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        >
+            <TableCell component="th" scope="row">
+                {p.name}
+            </TableCell>
+            <TableCell align="right">{p.known_for_department}</TableCell>
+            <TableCell align="right">{p.popularity}</TableCell>
+            <TableCell align="right">{p.gender}</TableCell>
+            <TableCell align="right">{p.adult}</TableCell>
+        </TableRow>
     ));
     return peopleCards;
 };
