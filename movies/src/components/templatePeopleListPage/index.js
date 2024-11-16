@@ -18,7 +18,7 @@ function PeopleListPageTemplate({ people, title, action }) {
                     sx={{padding: "20px"}}
                 >
                 </Grid>
-                <PeopleList action={action} movies={people}></PeopleList>
+                <PeopleList action={action} people={people}></PeopleList>
             </Grid>
         </Grid>
     );
