@@ -1,26 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Header from "../headerMovieList";
-import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid2";
 
-function MovieListPageTemplate({ movies, title, action }) {
-    const [nameFilter, setNameFilter] = useState("");
-    const [genreFilter, setGenreFilter] = useState("0");
-    const genreId = Number(genreFilter);
-
-    let displayedMovies = movies
-        .filter((m) => {
-            return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
-        })
-        .filter((m) => {
-            return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-        });
-
-    const handleChange = (type, value) => {
-        if (type === "name") setNameFilter(value);
-        else setGenreFilter(value);
-    };
+function PeopleListPageTemplate({ people, title, action }) {
 
     return (
         <Grid container>
@@ -33,15 +16,10 @@ function MovieListPageTemplate({ movies, title, action }) {
                     size={{xs: 12, sm: 6, md: 4, lg: 3, xl: 2}}
                     sx={{padding: "20px"}}
                 >
-                    <FilterCard
-                        onUserInput={handleChange}
-                        titleFilter={nameFilter}
-                        genreFilter={genreFilter}
-                    />
                 </Grid>
-                <MovieList action={action} movies={displayedMovies}></MovieList>
+                <PeopleList action={action} movies={people}></PeopleList>
             </Grid>
         </Grid>
     );
 }
-export default MovieListPageTemplate;
+export default PeopleListPageTemplate;
