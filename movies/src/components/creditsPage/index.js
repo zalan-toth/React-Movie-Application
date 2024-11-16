@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 import {getMovieCredits} from "../../api/tmdb-api";
+import {Link} from "react-router-dom";
 
 export default function CreditsPage({ movieId }) {
     const { data , error, isLoading, isError } = useQuery(
@@ -22,7 +23,7 @@ export default function CreditsPage({ movieId }) {
     return (
         <div>
             {credits.map((c) => (
-                <p>{c.name}</p>
+                <Link to={`/people/${c.id}`}>{c.name}<br/><br/></Link>
             ))}
         </div>
     );
