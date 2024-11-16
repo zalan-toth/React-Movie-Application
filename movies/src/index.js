@@ -18,6 +18,7 @@ import SimilarMoviesPage from "./pages/similarMoviesPage";
 import LatestMoviePage from "./pages/latestMovieDetailsPage";
 import MovieCreditsPage from "./pages/movieCreditsPage";
 import PopularPeoplePage from "./pages/popularPeoplePage";
+import PersonPage from "./pages/personDetailsPage";
 
 const queryClient = new QueryClient({
     defaultOptions: {

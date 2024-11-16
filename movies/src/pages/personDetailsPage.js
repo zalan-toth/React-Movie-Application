@@ -1,28 +1,18 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
-import PageTemplate from "../components/templateMoviePage";
+import PageTemplate from "../components/templatePersonPage";
 import { getPerson } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 import {get} from "react-hook-form";
+import PersonDetails from "../components/personDetails";
 // import useMovie from "../hooks/useMovie";   Redundant
 
-const MoviePage = (props) => {
+const PersonPage = (props) => {
     const { id } = useParams();
-    //console.log(id)
 
-    /*const movieQuery = (id === "latest") ? useQuery("latestMovie", getLatestMovie) :
-        useQuery(["movie", { id: id }], getMovie);
-
-    const { data: movie, error, isLoading, isError } = movieQuery;*/
-
-    /*const { data: movie, error, isLoading, isError } = useQuery(
-        ["movie", id],
-        id === "latest" ? getLatestMovie : getMovie
-    );*/
-
-    const { data: movie, error, isLoading, isError } = useQuery(
+    const { data: person, error, isLoading, isError } = useQuery(
         ["person", { id: id }],
         getPerson
     );
@@ -39,10 +29,10 @@ const MoviePage = (props) => {
 
     return (
         <>
-            {movie ? (
+            {person ? (
                 <>
-                    <PageTemplate movie={movie}>
-                        <MovieDetails movie={movie} />
+                    <PageTemplate person={person}>
+                        <PersonDetails movie={person} />
                     </PageTemplate>
                 </>
             ) : (
@@ -52,4 +42,4 @@ const MoviePage = (props) => {
     );
 };
 
-export default MoviePage;
+export default PersonPage;
