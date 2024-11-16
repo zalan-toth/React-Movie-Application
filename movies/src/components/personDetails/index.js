@@ -32,7 +32,7 @@ const PersonDetails = ({ person }) => {
             </Typography>
 
             <Typography variant="h6" component="p">
-                {person.overview}
+                {person.biography}
             </Typography>
 
         </>

@@ -32,7 +32,7 @@ const PersonPage = (props) => {
             {person ? (
                 <>
                     <PageTemplate person={person}>
-                        <PersonDetails movie={person} />
+                        <PersonDetails person={person} />
                     </PageTemplate>
                 </>
             ) : (
