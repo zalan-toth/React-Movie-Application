@@ -20,6 +20,7 @@ import MovieCreditsPage from "./pages/movieCreditsPage";
 import PopularPeoplePage from "./pages/popularPeoplePage";
 import PersonPage from "./pages/personDetailsPage";
 import MovieCreditsForPersonPage from "./pages/movieCreditsForPersonPage";
+import MovieSearchPage from "./pages/movieSearchPage";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -39,6 +40,7 @@ const App = () => {
                 <MoviesContextProvider>
                     <Routes>
                         <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
+                        <Route path="/movies/search" element={<MovieSearchPage />} />
                         <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
                         <Route path="/movies/watchlist" element={<WatchListMoviesPage />} />
                         <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
