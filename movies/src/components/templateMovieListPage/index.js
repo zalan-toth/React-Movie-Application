@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid2";
 function MovieListPageTemplate({ movies, title, action }) {
     const [nameFilter, setNameFilter] = useState("");
     const [genreFilter, setGenreFilter] = useState("0");
-    const [ratingFilter, setRatingFilter] = useState("0");
+    const [ratingFilter, setRatingFilter] = useState(0);
     const genreId = Number(genreFilter);
     const rating = Number(ratingFilter);
 
@@ -16,12 +16,13 @@ function MovieListPageTemplate({ movies, title, action }) {
             return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
         })
         .filter((m) => {
-            return m.vote_average > rating;
+            return m.vote_average >= rating;
         })
         .filter((m) => {
             return genreId > 0 ? m.genre_ids.includes(genreId) : true;
         });
 
+    console.log("Looking for minimum rating of",rating)
     const handleChange = (type, value) => {
         if (type === "name") setNameFilter(value);
         else setGenreFilter(value);
