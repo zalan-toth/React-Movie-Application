@@ -33,6 +33,9 @@ Name: Zalán Tóth (20102768)
 + Getting movies that are trending today - trending/movie/day
 + Getting upcoming movies - movie/upcoming
 + Getting credits for a movie - movie/${id}/credits
++ Getting movie credits for a person - person/${id}/movie_credits
++ Getting a person - person/${id}
++ Getting popular people - person/popular
 
 ## Routing.
 
@@ -44,6 +47,9 @@ Name: Zalán Tóth (20102768)
 + /movies/playing - Provides movies that are currently playing
 + /similar OR /similar/:id OR /movies/:id/similar - Provides similar movies to the given one (stateful and parameterised)
 + /movies/:id/credits - Provides credits for a movie
++ /people/popular - Provides list of popular people ordered by popularity
++ /people/:id - Provides details about a person
++ /people/:id/credits/movie - Provides movie credits for person
 
 [If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
 
