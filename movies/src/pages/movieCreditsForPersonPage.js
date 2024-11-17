@@ -2,7 +2,6 @@ import React from "react";
 import {useParams} from "react-router-dom";
 import PageTemplate from "../components/templatePersonPage";
 import {getPerson} from "../api/tmdb-api";
-import CreditsPage from "../components/creditsPage";
 import {useQuery} from "react-query";
 import Spinner from "../components/spinner";
 import PersonMovieCreditsPage from "../components/movieCreditsForPersonPage";
