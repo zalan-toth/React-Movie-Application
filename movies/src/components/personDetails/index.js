@@ -34,6 +34,7 @@ const PersonDetails = ({ person }) => {
             <Typography variant="h6" component="p">
                 {person.biography}
             </Typography>
+            <Link to={`/people/${person.id}/credits/movie`}>Movie Credits</Link>
 
         </>
     );
