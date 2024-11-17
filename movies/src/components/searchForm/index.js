@@ -77,9 +77,9 @@ const SearchForm = ({ }) => {
                             required
                             onChange={onChange}
                             value={value}
-                            id="author"
-                            label="Author's name"
-                            name="author"
+                            id="title"
+                            label="Movie title"
+                            name="title"
                             autoFocus
                         />
                     )}
@@ -104,7 +104,7 @@ const SearchForm = ({ }) => {
                         color="secondary"
                         onClick={() => {
                             reset({
-                                author: "",
+                                title: "",
                                 content: "",
                             });
                         }}

@@ -164,6 +164,23 @@ export const getMovieImages = ({ queryKey }) => {
         });
 };
 
+export const searchForMovies = ({ queryKey }) => {
+    const [, { title }] = queryKey;
+    console.log("API Title value",title)
+    return fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&query=${title}`
+    ).then( (response) => {
+        if (!response.ok) {
+            return response.json().then((error) => {
+                throw new Error(error.status_message || "Something went wrong");
+            });
+        }
+        return response.json();
+    })
+        .catch((error) => {
+            throw error
+        });
+};
 export const getMovieReviews = ({ queryKey }) => {
     const [, idPart] = queryKey;
     const { id } = idPart;
