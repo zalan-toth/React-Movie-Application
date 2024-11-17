@@ -8,8 +8,10 @@ function MovieListPageTemplate({ movies, title, action }) {
     const [nameFilter, setNameFilter] = useState("");
     const [genreFilter, setGenreFilter] = useState("0");
     const [ratingFilter, setRatingFilter] = useState(0);
+    const [popularityFilter, setPopularityFilter] = useState(0);
     const genreId = Number(genreFilter);
     const rating = Number(ratingFilter);
+    const popularity = Number(popularityFilter);
 
     let displayedMovies = movies
         .filter((m) => {
@@ -19,14 +21,29 @@ function MovieListPageTemplate({ movies, title, action }) {
             return m.vote_average >= rating;
         })
         .filter((m) => {
+            return m.popularity >= popularity;
+        })
+        .filter((m) => {
             return genreId > 0 ? m.genre_ids.includes(genreId) : true;
         });
 
-    console.log("Looking for minimum rating of",rating)
+    console.log("Looking for minimum pop of",popularity)
     const handleChange = (type, value) => {
         if (type === "name") setNameFilter(value);
         else if (type === "rating") {
             setRatingFilter(value)
+        } else if (type === "popularity") {
+            if (typeof value === "number") {
+                setPopularityFilter(value)
+            } else if (typeof  value === "string"){
+                if (value === "popular"){
+                    setPopularityFilter(1000)
+                } else if (value === "hype"){
+                    setPopularityFilter(2000)
+                } else {
+                    setPopularityFilter(0)
+                }
+            }
         } else setGenreFilter(value);
     };
 

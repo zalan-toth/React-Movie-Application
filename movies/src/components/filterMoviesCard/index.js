@@ -13,7 +13,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
 import { getGenres } from "../../api/tmdb-api";
-import {Slider} from "@mui/material";
+import {FormControlLabel, FormLabel, InputAdornment, OutlinedInput, Radio, RadioGroup, Slider} from "@mui/material";
 
 const formControl =
     {
@@ -53,6 +53,9 @@ export default function FilterMoviesCard(props) {
 
     const handleRatingChange = (e, props) => {
         handleChange(e, "rating", e.target.value);
+    };
+    const handlePopularityChange = (e, props) => {
+        handleChange(e, "popularity", e.target.value);
     };
     return (
         <Card
@@ -117,6 +120,20 @@ export default function FilterMoviesCard(props) {
                         },
                     }}
                 />
+                <FormControl>
+                    <FormLabel id="demo-radio-buttons-group-label">Popularity</FormLabel>
+                    <RadioGroup
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        defaultValue="all"
+                        value={props.popularityFilter}
+                        onChange={handlePopularityChange}
+                        name="radio-buttons-group"
+                    >
+                        <FormControlLabel value="all" control={<Radio />} label="All" />
+                        <FormControlLabel value="popular" control={<Radio />} label="Popular" />
+                        <FormControlLabel value="hype" control={<Radio />} label="Hype" />
+                    </RadioGroup>
+                </FormControl>
 
             </CardContent>
             <CardMedia
