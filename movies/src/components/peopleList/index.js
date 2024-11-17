@@ -17,7 +17,7 @@ const PeopleList = (props) => {
             </TableCell>
             <TableCell align="right">{p.known_for_department}</TableCell>
             <TableCell align="right">{p.popularity}</TableCell>
-            <TableCell align="right">{p.gender === 1 ? "Female" : "Male"}</TableCell>
+            <TableCell align="right">{p.gender === 1 ? "Female" : p.gender === 2 ? "Male" : "Not specified"}</TableCell>
             <TableCell align="right">{p.adult ? "Minor" : "Adult"}</TableCell>
         </TableRow>
     ));
