@@ -13,6 +13,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
 import { getGenres } from "../../api/tmdb-api";
+import {Slider} from "@mui/material";
 
 const formControl =
     {
@@ -50,6 +51,9 @@ export default function FilterMoviesCard(props) {
         handleChange(e, "genre", e.target.value);
     };
 
+    const handleRatingChange = (e, props) => {
+        handleChange(e, "rating", e.target.value);
+    };
     return (
         <Card
             sx={{
@@ -88,6 +92,32 @@ export default function FilterMoviesCard(props) {
                         })}
                     </Select>
                 </FormControl>
+
+                <Typography variant="h5" component="h1">
+                    Minimum rating
+                </Typography>
+                <Slider
+                    aria-label="Rating"
+                    value={props.ratingFilter}
+                    onChange={handleRatingChange}
+                    defaultValue={0}
+                    valueLabelDisplay="auto"
+                    shiftStep={1}
+                    step={0.5}
+                    marks
+                    min={0}
+                    max={10}
+                    sx={{
+                        color: 'white', // Changes the slider track and thumb color to red
+                        '& .MuiSlider-thumb': {
+                            borderColor: 'orange', // Adjust thumb border color
+                        },
+                        '& .MuiSlider-valueLabel': {
+                            backgroundColor: 'white', // Change value label background color
+                        },
+                    }}
+                />
+
             </CardContent>
             <CardMedia
                 sx={{ height: 300 }}
