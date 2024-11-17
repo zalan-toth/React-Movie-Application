@@ -33,6 +33,7 @@ Name: Zalán Tóth (20102768)
 + Getting movies that are trending today - trending/movie/day
 + Getting upcoming movies - movie/upcoming
 + Getting credits for a movie - movie/${id}/credits
++ Getting the latest movie added to TMDB - movie/latest
 + Getting movie credits for a person - person/${id}/movie_credits
 + Getting a person - person/${id}
 + Getting popular people - person/popular
@@ -45,6 +46,7 @@ Name: Zalán Tóth (20102768)
 + /movies/upcoming - Provides upcoming movies
 + /movies/trending/today - Provides movies that are trending today
 + /movies/playing - Provides movies that are currently playing
++ /movies/latest - Gives the latest movie added to TMDB
 + /similar OR /similar/:id OR /movies/:id/similar - Provides similar movies to the given one (stateful and parameterised)
 + /movies/:id/credits - Provides credits for a movie
 + /people/popular - Provides list of popular people ordered by popularity
