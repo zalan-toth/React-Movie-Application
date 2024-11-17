@@ -26,7 +26,7 @@ const PopularPeoplePage = (props) => {
 
     return (
         <PageTemplate
-            title="People ordered by popularity"
+            title="Popular People"
             people={popularPeople}
         />
     );
