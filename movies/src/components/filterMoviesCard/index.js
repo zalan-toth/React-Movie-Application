@@ -113,7 +113,7 @@ export default function FilterMoviesCard(props) {
                             borderColor: 'orange', // Adjust thumb border color
                         },
                         '& .MuiSlider-valueLabel': {
-                            backgroundColor: 'white', // Change value label background color
+                            backgroundColor: 'red', // Change value label background color
                         },
                     }}
                 />
