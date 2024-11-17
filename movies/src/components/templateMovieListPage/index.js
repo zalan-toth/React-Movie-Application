@@ -25,7 +25,9 @@ function MovieListPageTemplate({ movies, title, action }) {
     console.log("Looking for minimum rating of",rating)
     const handleChange = (type, value) => {
         if (type === "name") setNameFilter(value);
-        else setGenreFilter(value);
+        else if (type === "rating") {
+            setRatingFilter(value)
+        } else setGenreFilter(value);
     };
 
     return (
