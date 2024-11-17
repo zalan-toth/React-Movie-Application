@@ -10,7 +10,7 @@ import PersonMovieCreditsPage from "../components/movieCreditsForPersonPage";
 const MovieCreditsForPersonPage = (props) => {
 
     const { id } = useParams();
-    const { data: movie, error, isLoading, isError } = useQuery(
+    const { data: person, error, isLoading, isError } = useQuery(
         ["person", { id }],
         getPerson
     );
