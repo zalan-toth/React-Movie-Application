@@ -17,7 +17,7 @@ function PeopleListPageTemplate({ people, title, action }) {
     //configuration - default state init
     const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
 
-    const debugMode = 1;
+    const debugMode = 0;
     //sorting logic
     //[...people] copy of people data and doing the sort on the copy
     const sortedPeople = [...people].sort((a, b) => {
