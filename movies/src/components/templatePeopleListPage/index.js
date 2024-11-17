@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Header from "../headerMovieList";
-import MovieList from "../movieList";
 import Grid from "@mui/material/Grid2";
 import PeopleList from "../peopleList";
 import Paper from "@mui/material/Paper";
@@ -10,6 +9,8 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from '@mui/material/TableContainer';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
+import Button from "@mui/material/Button";
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 
 function PeopleListPageTemplate({ people, title, action }) {
 
@@ -23,11 +24,21 @@ function PeopleListPageTemplate({ people, title, action }) {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell align="right">Department</TableCell>
-                            <TableCell align="right">Popularity</TableCell>
-                            <TableCell align="right">Gender</TableCell>
-                            <TableCell align="right">Adult?</TableCell>
+                            <TableCell>
+                                <Button color="secondary" onClick={() => handleSort('name')} size="large">Name<KeyboardDoubleArrowDownIcon color="primary" fontSize="medium" /></Button>
+                            </TableCell>
+                            <TableCell align="right">
+                                <Button color="secondary" size="large">Department</Button>
+                            </TableCell>
+                            <TableCell align="right">
+                                <Button color="secondary" onClick={() => handleSort('popularity')} size="large">Popularity<KeyboardDoubleArrowDownIcon color="primary" fontSize="medium" /></Button>
+                            </TableCell>
+                            <TableCell align="right">
+                                <Button color="secondary" size="large">Gender</Button>
+                            </TableCell>
+                            <TableCell align="right">
+                                <Button color="secondary" size="large">Adult</Button>
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
