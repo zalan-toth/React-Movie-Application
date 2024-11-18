@@ -1,17 +1,9 @@
 import React, { useState } from "react";
-import Chip from "@mui/material/Chip";
-import Paper from "@mui/material/Paper";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
-import StarRate from "@mui/icons-material/StarRate";
-import NavigationIcon from "@mui/icons-material/Navigation";
-import Fab from "@mui/material/Fab";
-import Typography from "@mui/material/Typography";
-import Drawer from "@mui/material/Drawer";
-import MovieReviews from "../movieReviews"
-import {Language} from "@mui/icons-material";
 import {Link} from "react-router-dom";
-import RateReviewIcon from "@mui/icons-material/RateReview";
+import {Typography, Card, CardContent, Button, Box } from "@mui/material";
+import CardMedia from "@mui/material/CardMedia";
+import Grid from "@mui/material/Grid2";
+
 
 const root = {
     display: "flex",
@@ -25,18 +17,68 @@ const chip = { margin: 0.5 };
 
 const PersonDetails = ({ person }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const profileImageUrl = person.profile_path
+        ? `https://image.tmdb.org/t/p/w500${person.profile_path}`
+        : "https://via.placeholder.com/500x750?text=No+Image";
     return (
-        <>
-            <Typography variant="h5" component="h3">
-                Overview
-            </Typography>
+        <Card>
+            <Grid container>
 
-            <Typography variant="h6" component="p">
-                {person.biography}
-            </Typography>
-            <Link to={`/people/${person.id}/credits/movie`}>Movie Credits</Link>
+                <Grid item xs={12} sm={8}>
+                    <CardContent>
+                        <Typography variant="h4" component="h2" gutterBottom>
+                            {person.name}
+                        </Typography>
 
-        </>
+                        <Box mb={3}>
+                            <Typography variant="h6" component="h3">
+                                Overview
+                            </Typography>
+                            <Typography variant="body1" component="p" color="text.secondary" mt={1}>
+                                {person.biography}
+                            </Typography>
+                        </Box>
+
+                        <Grid container spacing={2} alignItems="center">
+                            {person.birthday && (
+                                <Grid item>
+                                    <Typography variant="body1">
+                                        <strong>Born:</strong> {person.birthday}
+                                    </Typography>
+                                </Grid>
+                            )}
+                            {person.place_of_birth && (
+                                <Grid item>
+                                    <Typography variant="body1">
+                                        <strong>Birthplace:</strong> {person.place_of_birth}
+                                    </Typography>
+                                </Grid>
+                            )}
+                            {person.deathday && (
+                                <Grid item>
+                                    <Typography variant="body1">
+                                        <strong>Died:</strong> {person.deathday}
+                                    </Typography>
+                                </Grid>
+                            )}
+                        </Grid>
+
+                        <Box mt={3}>
+                            <Button
+                                component={Link}
+                                to={`/people/${person.id}/credits/movie`}
+                                variant="contained"
+                                color="primary"
+                            >
+                                Movie Credits
+                            </Button>
+                        </Box>
+
+                    </CardContent>
+
+                </Grid>
+            </Grid>
+        </Card>
     );
 };
 export default PersonDetails ;
