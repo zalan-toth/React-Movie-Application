@@ -5,10 +5,16 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import AddToWatchIcon from "../components/cardIcons/addToWatch";
+import {useParams} from "react-router-dom";
 
 const PlayingMoviesPage = (props) => {
 
-    const {  data, error, isLoading, isError }  = useQuery('playing', getPlayingMovies)
+    const { page } = useParams();
+    let pageNumber = page
+    if (pageNumber===undefined||Number(pageNumber)<1){
+        pageNumber=1;
+    }
+    const {  data, error, isLoading, isError }  = useQuery(['playing', { pageNumber }], getPlayingMovies)
 
     if (isLoading) {
         return <Spinner />
