@@ -58,10 +58,12 @@ function PeopleListPageTemplate({ people, title, action, pagination, page, locat
 
     console.log("pagination is set to",pagination)
     const handlePageChange = (direction) => {
+        const queryString = `?view=${view}`; //using querystring to check for view state
+
         if (direction === "prev" && currentPage > 1) {
-            navigate(`${location}/page/${currentPage - 1}`);
+            navigate(`${location}/page/${currentPage - 1}${queryString}`);
         } else if (direction === "next") {
-            navigate(`${location}/page/${currentPage + 1}`);
+            navigate(`${location}/page/${currentPage + 1}${queryString}`);
         }
     };
     const handleSort = (key) => {
