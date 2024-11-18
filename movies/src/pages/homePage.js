@@ -5,10 +5,16 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import AddToWatchIcon from "../components/cardIcons/addToWatch";
+import {useParams} from "react-router-dom";
 
 const HomePage = (props) => {
 
-    const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+    const { page } = useParams();
+    let pageNumber = page
+    if (pageNumber===undefined||(Number(pageNumber)<1)||Number(pageNumber)>500){
+        pageNumber=1;
+    }
+    const {  data, error, isLoading, isError }  = useQuery(['discover', { pageNumber }], getMovies)
 
     if (isLoading) {
         return <Spinner />
@@ -28,6 +34,9 @@ const HomePage = (props) => {
         <PageTemplate
             title="Discover Movies"
             movies={movies}
+            pagination={true}
+            page={pageNumber}
+            location={"/movies/discover"}
             action={(movie) => {
                 return <>
                     <AddToFavoritesIcon movie={movie} />
