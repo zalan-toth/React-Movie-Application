@@ -5,7 +5,6 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import AddToWatchIcon from "../components/cardIcons/addToWatch";
-import ReviewForm from "../components/reviewForm";
 import {useParams, useLocation} from "react-router-dom";
 
 const SimilarMoviesPage = (props) => {
