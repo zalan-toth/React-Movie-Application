@@ -12,6 +12,8 @@ import MovieReviews from "../movieReviews"
 import {Language} from "@mui/icons-material";
 import {Link} from "react-router-dom";
 import RateReviewIcon from "@mui/icons-material/RateReview";
+import {ButtonGroup} from "@mui/material";
+import Button from "@mui/material/Button";
 
 const root = {
     display: "flex",
@@ -94,27 +96,43 @@ const MovieDetails = ({ movie }) => {
                 ))}
             </Paper>
 
-            <Link
-                to={`/similar`}
-                state={{
-                    movieId: movie.id,
+            <ButtonGroup
+                orientation="vertical"
+                aria-label="Vertical button group"
+                variant="text"
+                sx={{
+                    alignItems: 'flex-start', // Align buttons to the left
                 }}
             >
-                <p>Similar Movies - Stateful</p>
-            </Link>
+
+                <Button
+                    component={Link}
+                    to={`/similar`}
+                    state={{
+                        movieId: movie.id,
+                    }}
+                >
+                    <p>Similar Movies - Stateful</p>
+                </Button>
+
+                <Button
+                    component={Link}
+                    to={`/movies/${movie.id}/similar`}
+                >
+                    <p>Similar Movies - Parameterised (This can be shared!)</p>
+                </Button>
+
+                <Button
+                    component={Link}
+                    to={`/movies/${movie.id}/credits`}
+                >
+                    <p>Credits</p>
+                </Button>
 
 
-            <Link
-                to={`/movies/${movie.id}/similar`}
-            >
-                <p>Similar Movies - Parameterised (This can be shared!)</p>
-            </Link>
+            </ButtonGroup>
 
-            <Link
-                to={`/movies/${movie.id}/credits`}
-            >
-                <p>Credits</p>
-            </Link>
+
 
             <Fab
                 color="secondary"
