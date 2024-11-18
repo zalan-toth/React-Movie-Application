@@ -51,6 +51,10 @@ const App = () => {
                 <MoviesContextProvider>
                     <Routes>
                         <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
+                        <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+
+                        <Route path="/movies/discover/page/:page" element={<HomePage />} />
+                        <Route path="/movies/discover" element={<HomePage />} />
                         <Route path="/movies/search" element={<MovieSearchPage />} />
                         <Route path="/movies/search/:title" element={<SearchResultMoviesPage />} />
                         <Route path="/movies/search/:title/page/:page" element={<SearchResultMoviesPage />} />
@@ -62,19 +66,19 @@ const App = () => {
                         <Route path="/movies/trending/today" element={<TrendingTodayMoviesPage />} />
                         <Route path="/movies/playing/page/:page" element={<PlayingMoviesPage />} />
                         <Route path="/movies/playing" element={<PlayingMoviesPage />} />
-                        <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
-                        <Route path="/similar" element={ <SimilarMoviesPage /> } />
-                        <Route path="/similar/:id" element={ <SimilarMoviesPage /> } />
                         <Route path="/movies/latest" element={<LatestMoviePage />} />
                         <Route path="/movies/:id/similar" element={ <SimilarMoviesPage /> } />
                         <Route path="/movies/:id/credits" element={ <MovieCreditsPage /> } />
                         <Route path="/movies/:id" element={<MoviePage />} />
+
+                        <Route path="/similar" element={ <SimilarMoviesPage /> } />
+                        <Route path="/similar/:id" element={ <SimilarMoviesPage /> } />
+
                         <Route path="/people/popular/page/:page" element={<PopularPeoplePage />} />
                         <Route path="/people/popular" element={<PopularPeoplePage />} />
                         <Route path="/people/:id" element={<PersonPage />} />
                         <Route path="/people/:id/credits/movie" element={<MovieCreditsForPersonPage />} />
-                        <Route path="/movies/discover/page/:page" element={<HomePage />} />
-                        <Route path="/movies/discover" element={<HomePage />} />
+                        
                         <Route path="/" element={<HomePage />} />
                         <Route path="*" element={ <Navigate to="/" /> } />
                     </Routes>
@@ -83,8 +87,7 @@ const App = () => {
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
     );
-};
-//TODO get popular people
+};ó
 //TODO get person details + image
 const rootElement = createRoot( document.getElementById("root") )
 rootElement.render(<App />);
