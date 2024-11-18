@@ -78,7 +78,7 @@ const App = () => {
                         <Route path="/people/popular" element={<PopularPeoplePage />} />
                         <Route path="/people/:id" element={<PersonPage />} />
                         <Route path="/people/:id/credits/movie" element={<MovieCreditsForPersonPage />} />
-                        
+
                         <Route path="/" element={<HomePage />} />
                         <Route path="*" element={ <Navigate to="/" /> } />
                     </Routes>
@@ -87,7 +87,7 @@ const App = () => {
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
     );
-};ó
+};
 //TODO get person details + image
 const rootElement = createRoot( document.getElementById("root") )
 rootElement.render(<App />);
