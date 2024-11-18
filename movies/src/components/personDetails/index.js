@@ -77,6 +77,7 @@ const PersonDetails = ({ person }) => {
                         <Box mt={3}>
                             <Button
                                 component={Link}
+                                state={person}
                                 to={`/people/${person.id}/credits/movie`}
                                 variant="contained"
                                 color="primary"
