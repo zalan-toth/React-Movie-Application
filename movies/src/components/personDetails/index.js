@@ -1,22 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import {Typography, Card, CardContent, Button, Box } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid2";
 
 
-const root = {
-    display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    listStyle: "none",
-    padding: 1.5,
-    margin: 0,
-};
-const chip = { margin: 0.5 };
 
 const PersonDetails = ({ person }) => {
-    const [drawerOpen, setDrawerOpen] = useState(false);
     const profileImageUrl = person.profile_path
         ? `https://image.tmdb.org/t/p/w500${person.profile_path}`
         : "https://via.placeholder.com/500x750?text=No+Image";
