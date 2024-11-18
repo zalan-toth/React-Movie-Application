@@ -188,6 +188,30 @@ function PeopleListPageTemplate({ people, title, action, pagination, page, locat
             <Grid container>
                 <Grid size={12}>
                     <Header title={title} />
+                    {pagination && (
+                        <Grid
+                            container
+                            sx={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                marginTop: "20px",
+                            }}
+                        >
+                            <IconButton
+                                onClick={() => handlePageChange("prev")}
+                                disabled={currentPage === 1}
+                            >
+                                <ArrowBackIcon />
+                            </IconButton>
+                            <span style={{ fontSize: "165%", margin: "0 20px" }}>Page {currentPage}</span>
+                            <IconButton
+                                onClick={() => handlePageChange("next")}
+                                disabled={currentPage === 500}
+                            >
+                                <ArrowForwardIcon />
+                            </IconButton>
+                        </Grid>
+                    )}
 
                     <ToggleButtonGroup
                         orientation="horizontal"
