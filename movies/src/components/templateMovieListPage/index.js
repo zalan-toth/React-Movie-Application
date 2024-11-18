@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-function MovieListPageTemplate({ movies, title, action, pagination, page }) {
+function MovieListPageTemplate({ movies, title, action, pagination, page, location }) {
     const currentPage = Number(page) || 1;
     const navigate = useNavigate();
 
@@ -57,9 +57,9 @@ function MovieListPageTemplate({ movies, title, action, pagination, page }) {
     console.log("pagination is set to",pagination)
     const handlePageChange = (direction) => {
         if (direction === "prev" && currentPage > 1) {
-            navigate(`/movies/playing/page/${currentPage - 1}`);
+            navigate(`${location}/page/${currentPage - 1}`);
         } else if (direction === "next") {
-            navigate(`/movies/playing/page/${currentPage + 1}`);
+            navigate(`${location}/page/${currentPage + 1}`);
         }
     };
     return (

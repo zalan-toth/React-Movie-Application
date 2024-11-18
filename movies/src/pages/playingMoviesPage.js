@@ -36,6 +36,7 @@ const PlayingMoviesPage = (props) => {
             movies={playingMovies}
             pagination={true}
             page={pageNumber}
+            location={"/movies/playing"}
             action={(movie) => {
                 return (
                     <>
