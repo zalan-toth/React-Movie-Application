@@ -29,8 +29,12 @@ function PeopleListPageTemplate({ people, title, action, pagination, page, locat
     const currentPage = Number(page) || 1;
     const navigate = useNavigate();
 
-    const [view, setView] = React.useState('list');
+    const queryParams = new URLSearchParams(window.location.search);
+    const initialView = queryParams.get('view') || 'list';
+    const [view, setView] = React.useState(initialView);
+    const queryString = `?view=${view}`;
     const handleChange = (event, nextView) => {
+        navigate(`${location}/page/${currentPage}?view=${nextView}`);
         setView(nextView);
     };
     //https://www.selbekk.io/blog/creating-sortable-tables-with-react
@@ -58,7 +62,6 @@ function PeopleListPageTemplate({ people, title, action, pagination, page, locat
 
     console.log("pagination is set to",pagination)
     const handlePageChange = (direction) => {
-        const queryString = `?view=${view}`; //using querystring to check for view state
 
         if (direction === "prev" && currentPage > 1) {
             navigate(`${location}/page/${currentPage - 1}${queryString}`);
