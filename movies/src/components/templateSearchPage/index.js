@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../headerMovieList";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid2";
-import SearchForm from "../searchForm";
 import SearchCard from "../searchCard";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";

@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 import {getMovieCreditsForPerson, getPerson} from "../../api/tmdb-api";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import PageTemplate from "../templateMovieListPage";
 import AddToFavoritesIcon from "../cardIcons/addToFavorites";
 import AddToWatchIcon from "../cardIcons/addToWatch";

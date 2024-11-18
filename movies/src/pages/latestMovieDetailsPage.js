@@ -1,11 +1,9 @@
 import React from "react";
-import { useParams } from 'react-router-dom';
 import MovieDetails from "../components/movieDetails/";
 import PageTemplate from "../components/templateMoviePage";
-import { getMovie, getLatestMovie } from '../api/tmdb-api'
+import { getLatestMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
-import {get} from "react-hook-form";
 // import useMovie from "../hooks/useMovie";   Redundant
 
 const LatestMoviePage = () => {

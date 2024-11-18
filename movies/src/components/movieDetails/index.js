@@ -11,7 +11,6 @@ import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
 import {Language} from "@mui/icons-material";
 import {Link} from "react-router-dom";
-import RateReviewIcon from "@mui/icons-material/RateReview";
 import {ButtonGroup} from "@mui/material";
 import Button from "@mui/material/Button";
 
