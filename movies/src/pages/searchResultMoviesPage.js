@@ -1,13 +1,13 @@
 import React from "react";
 import {searchForMovies} from "../api/tmdb-api";
-import PageTemplate from '../components/templateMovieListPage';
+import PageTemplate from '../components/templateSearchPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import AddToWatchIcon from "../components/cardIcons/addToWatch";
 import {useParams} from "react-router-dom";
 
-const SearchResultMoviesPage = (props) => {
+const SearchResultMoviesPage = ( props ) => {
 
     const { title } = useParams();
     console.log("Page Title value",title)

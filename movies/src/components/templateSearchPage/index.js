@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../headerMovieList";
-import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid2";
-import MovieSearchPage from "../../pages/movieSearchPage";
 import SearchForm from "../searchForm";
+import SearchCard from "../searchCard";
 
-function TemplateSearchPage({ }) {
+function TemplateSearchPage({ movies, action }) {
 
+    if (movies===undefined){
+        movies=[];
+    }
     return (
         <Grid container>
             <Grid size={12}>
@@ -19,8 +21,9 @@ function TemplateSearchPage({ }) {
                     size={{xs: 12, sm: 6, md: 4, lg: 3, xl: 2}}
                     sx={{padding: "20px"}}
                 >
-                    <SearchForm/>
+                    <SearchCard/>
                 </Grid>
+                <MovieList action={action} movies={movies}></MovieList>
             </Grid>
         </Grid>
     );
