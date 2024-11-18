@@ -9,10 +9,17 @@ import {useParams} from "react-router-dom";
 
 const SearchResultMoviesPage = ( props ) => {
 
-    const { title } = useParams();
+    const { title, page } = useParams();
+
+
+    let pageNumber = page
+    if (pageNumber===undefined||(Number(pageNumber)<1)||Number(pageNumber)>500){
+        pageNumber=1;
+    }
+
     console.log("Page Title value",title)
     const { data, error, isLoading, isError } = useQuery(
-        ["searchResult", { title }],
+        ["searchResult", { title }, { pageNumber }],
         searchForMovies
     );
 
@@ -35,6 +42,9 @@ const SearchResultMoviesPage = ( props ) => {
         <PageTemplate
             title="Search Result"
             movies={resultMovies}
+            pagination={true}
+            page={pageNumber}
+            location={`/movies/search/${title}`}
             action={(movie) => {
                 return (
                     <>

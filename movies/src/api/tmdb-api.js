@@ -170,10 +170,10 @@ export const getMovieImages = ({ queryKey }) => {
 };
 
 export const searchForMovies = ({ queryKey }) => {
-    const [, { title }] = queryKey;
+    const [, { title }, { pageNumber }] = queryKey;
     console.log("API Title value",title)
     return fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&query=${title}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&query=${title}&page=${pageNumber}`
     ).then( (response) => {
         if (!response.ok) {
             return response.json().then((error) => {
