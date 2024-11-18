@@ -3,8 +3,15 @@ import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid2";
+import {useNavigate} from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-function MovieListPageTemplate({ movies, title, action }) {
+function MovieListPageTemplate({ movies, title, action, pagination, page }) {
+    const currentPage = Number(page) || 1;
+    const navigate = useNavigate();
+
     const [nameFilter, setNameFilter] = useState("");
     const [genreFilter, setGenreFilter] = useState("0");
     const [ratingFilter, setRatingFilter] = useState(0);
@@ -47,6 +54,14 @@ function MovieListPageTemplate({ movies, title, action }) {
         } else setGenreFilter(value);
     };
 
+    console.log("pagination is set to",pagination)
+    const handlePageChange = (direction) => {
+        if (direction === "prev" && currentPage > 1) {
+            navigate(`/movies/playing/page/${currentPage - 1}`);
+        } else if (direction === "next") {
+            navigate(`/movies/playing/page/${currentPage + 1}`);
+        }
+    };
     return (
         <Grid container>
             <Grid size={12}>
@@ -67,6 +82,30 @@ function MovieListPageTemplate({ movies, title, action }) {
                 </Grid>
                 <MovieList action={action} movies={displayedMovies}></MovieList>
             </Grid>
+            {pagination && (
+                <Grid
+                    container
+                    sx={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        marginTop: "20px",
+                    }}
+                >
+                    <IconButton
+                        onClick={() => handlePageChange("prev")}
+                        disabled={currentPage === 1}
+                    >
+                        <ArrowBackIcon />
+                    </IconButton>
+                    <span style={{ margin: "0 20px" }}>Page {currentPage}</span>
+                    <IconButton
+                        onClick={() => handlePageChange("next")}
+                        disabled={currentPage === 500}
+                    >
+                        <ArrowForwardIcon />
+                    </IconButton>
+                </Grid>
+            )}
         </Grid>
     );
 }

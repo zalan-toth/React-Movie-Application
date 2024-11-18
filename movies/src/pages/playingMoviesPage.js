@@ -34,6 +34,8 @@ const PlayingMoviesPage = (props) => {
         <PageTemplate
             title="Movies Now Playing"
             movies={playingMovies}
+            pagination={true}
+            page={pageNumber}
             action={(movie) => {
                 return (
                     <>
