@@ -11,7 +11,7 @@ const PlayingMoviesPage = (props) => {
 
     const { page } = useParams();
     let pageNumber = page
-    if (pageNumber===undefined||Number(pageNumber)<1){
+    if (pageNumber===undefined||(Number(pageNumber)<1)||Number(pageNumber)>500){
         pageNumber=1;
     }
     const {  data, error, isLoading, isError }  = useQuery(['playing', { pageNumber }], getPlayingMovies)
