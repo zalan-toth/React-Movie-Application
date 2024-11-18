@@ -66,6 +66,30 @@ function MovieListPageTemplate({ movies, title, action, pagination, page }) {
         <Grid container>
             <Grid size={12}>
                 <Header title={title} />
+                {pagination && (
+                    <Grid
+                        container
+                        sx={{
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginTop: "20px",
+                        }}
+                    >
+                        <IconButton
+                            onClick={() => handlePageChange("prev")}
+                            disabled={currentPage === 1}
+                        >
+                            <ArrowBackIcon />
+                        </IconButton>
+                        <span style={{ fontSize: "165%", margin: "0 20px" }}>Page {currentPage}</span>
+                        <IconButton
+                            onClick={() => handlePageChange("next")}
+                            disabled={currentPage === 500}
+                        >
+                            <ArrowForwardIcon />
+                        </IconButton>
+                    </Grid>
+                )}
             </Grid>
             <Grid container sx={{flex: "1 1 500px"}}>
                 <Grid
@@ -81,31 +105,8 @@ function MovieListPageTemplate({ movies, title, action, pagination, page }) {
                     />
                 </Grid>
                 <MovieList action={action} movies={displayedMovies}></MovieList>
+
             </Grid>
-            {pagination && (
-                <Grid
-                    container
-                    sx={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginTop: "20px",
-                    }}
-                >
-                    <IconButton
-                        onClick={() => handlePageChange("prev")}
-                        disabled={currentPage === 1}
-                    >
-                        <ArrowBackIcon />
-                    </IconButton>
-                    <span style={{ margin: "0 20px" }}>Page {currentPage}</span>
-                    <IconButton
-                        onClick={() => handlePageChange("next")}
-                        disabled={currentPage === 500}
-                    >
-                        <ArrowForwardIcon />
-                    </IconButton>
-                </Grid>
-            )}
         </Grid>
     );
 }
