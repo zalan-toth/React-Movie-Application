@@ -14,9 +14,11 @@ export const getMovies = ({ queryKey }) => {
             throw error
         });
 };
-export const getPopularPeople = () => {
+export const getPopularPeople = ({ queryKey }) => {
+    const [, { pageNumber }] = queryKey;
+    console.log("Page Detect",pageNumber)
     return fetch(
-        `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+        `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${pageNumber}`
     ).then((response) => {
         if (!response.ok) {
             return response.json().then((error) => {
