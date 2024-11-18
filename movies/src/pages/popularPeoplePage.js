@@ -5,10 +5,16 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import AddToWatchIcon from "../components/cardIcons/addToWatch";
+import {useParams} from "react-router-dom";
 
 const PopularPeoplePage = (props) => {
 
-    const {  data, error, isLoading, isError }  = useQuery('popularPeople', getPopularPeople)
+    const { page } = useParams();
+    let pageNumber = page
+    if (pageNumber===undefined||(Number(pageNumber)<1)||Number(pageNumber)>500){
+        pageNumber=1;
+    }
+    const {  data, error, isLoading, isError }  = useQuery(['popularPeople', { pageNumber }], getPopularPeople)
 
     if (isLoading) {
         return <Spinner />
@@ -26,6 +32,9 @@ const PopularPeoplePage = (props) => {
 
     return (
         <PageTemplate
+            pagination={true}
+            page={pageNumber}
+            location={"/people/popular"}
             title="Popular People"
             people={popularPeople}
         />

@@ -22,7 +22,12 @@ import CardActions from "@mui/material/CardActions";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
 import PeopleCards from "../peopleCards";
-function PeopleListPageTemplate({ people, title, action }) {
+import {useNavigate} from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+function PeopleListPageTemplate({ people, title, action, pagination, page, location }) {
+    const currentPage = Number(page) || 1;
+    const navigate = useNavigate();
 
     const [view, setView] = React.useState('list');
     const handleChange = (event, nextView) => {
@@ -51,6 +56,14 @@ function PeopleListPageTemplate({ people, title, action }) {
         return 0; //fallback exit
     });
 
+    console.log("pagination is set to",pagination)
+    const handlePageChange = (direction) => {
+        if (direction === "prev" && currentPage > 1) {
+            navigate(`${location}/page/${currentPage - 1}`);
+        } else if (direction === "next") {
+            navigate(`${location}/page/${currentPage + 1}`);
+        }
+    };
     const handleSort = (key) => {
         if (debugMode) {
             console.log("==========================================================================================================================================");
@@ -78,6 +91,30 @@ function PeopleListPageTemplate({ people, title, action }) {
             <Grid container>
                 <Grid size={12}>
                     <Header title={title} />
+                    {pagination && (
+                        <Grid
+                            container
+                            sx={{
+                                justifyContent: "center",
+                                alignItems: "center",
+                                marginTop: "20px",
+                            }}
+                        >
+                            <IconButton
+                                onClick={() => handlePageChange("prev")}
+                                disabled={currentPage === 1}
+                            >
+                                <ArrowBackIcon />
+                            </IconButton>
+                            <span style={{ fontSize: "165%", margin: "0 20px" }}>Page {currentPage}</span>
+                            <IconButton
+                                onClick={() => handlePageChange("next")}
+                                disabled={currentPage === 500}
+                            >
+                                <ArrowForwardIcon />
+                            </IconButton>
+                        </Grid>
+                    )}
                 </Grid>
 
                 <ToggleButtonGroup
