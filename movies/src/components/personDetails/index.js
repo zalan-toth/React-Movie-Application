@@ -63,6 +63,17 @@ const PersonDetails = ({ person }) => {
                             )}
                         </Grid>
 
+                        <Grid item xs={12} sm={4}>
+                            <CardMedia
+                                component="img"
+                                image={profileImageUrl}
+                                alt={`${person.name}'s profile`}
+                                sx={{
+                                    width: "240px"
+                                }}
+                            />
+                        </Grid>
+
                         <Box mt={3}>
                             <Button
                                 component={Link}
@@ -73,6 +84,7 @@ const PersonDetails = ({ person }) => {
                                 Movie Credits
                             </Button>
                         </Box>
+
 
                     </CardContent>
 
