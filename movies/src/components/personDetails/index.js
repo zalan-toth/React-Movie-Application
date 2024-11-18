@@ -27,7 +27,7 @@ const PersonDetails = ({ person }) => {
                 <Grid item xs={12} sm={8}>
                     <CardContent>
                         <Typography variant="h4" component="h2" gutterBottom>
-                            {person.name}
+                            {person.name || "Unknown Person"}
                         </Typography>
 
                         <Box mb={3}>
@@ -35,7 +35,7 @@ const PersonDetails = ({ person }) => {
                                 Overview
                             </Typography>
                             <Typography variant="body1" component="p" color="text.secondary" mt={1}>
-                                {person.biography}
+                                {person.biography || "No biography available for this person."}
                             </Typography>
                         </Box>
 
