@@ -69,6 +69,7 @@ const App = () => {
                         <Route path="/movies/:id/similar" element={ <SimilarMoviesPage /> } />
                         <Route path="/movies/:id/credits" element={ <MovieCreditsPage /> } />
                         <Route path="/movies/:id" element={<MoviePage />} />
+                        <Route path="/people/popular/page/:page" element={<PopularPeoplePage />} />
                         <Route path="/people/popular" element={<PopularPeoplePage />} />
                         <Route path="/people/:id" element={<PersonPage />} />
                         <Route path="/people/:id/credits/movie" element={<MovieCreditsForPersonPage />} />
