@@ -11,8 +11,23 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import Button from "@mui/material/Button";
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
-
+import {ToggleButton, ToggleButtonGroup} from "@mui/material";
+import ViewListIcon from '@mui/icons-material/ViewList';
+import ViewModuleIcon from '@mui/icons-material/ViewModule';
+import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import CardActions from "@mui/material/CardActions";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
+import PeopleCards from "../peopleCards";
 function PeopleListPageTemplate({ people, title, action }) {
+
+    const [view, setView] = React.useState('list');
+    const handleChange = (event, nextView) => {
+        setView(nextView);
+    };
     //https://www.selbekk.io/blog/creating-sortable-tables-with-react
     //configuration - default state init
     const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
@@ -58,64 +73,160 @@ function PeopleListPageTemplate({ people, title, action }) {
             return newSortConfig;
         });
     }
-    return (
-        <Grid container>
-            <Grid size={12}>
-                <Header title={title} />
+    if (view==="list"){
+        return (
+            <Grid container>
+                <Grid size={12}>
+                    <Header title={title} />
+                </Grid>
+
+                <ToggleButtonGroup
+                    orientation="horizontal"
+                    value={view}
+                    exclusive
+                    onChange={handleChange}
+                >
+                    <ToggleButton value="list" aria-label="list">
+                        <ViewListIcon />
+                    </ToggleButton>
+                    <ToggleButton value="table" aria-label="module">
+                        <ViewModuleIcon />
+                    </ToggleButton>
+                </ToggleButtonGroup>
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>
+                                    <Button
+                                        color="primary"
+                                        onClick={() => handleSort("name")}
+                                        size="large"
+                                    >
+                                        Name
+                                        {sortConfig.key === "name" && (
+                                            <UnfoldMoreIcon
+                                                color={sortConfig.direction === "asc" ? "inherit" : "primary"}
+                                                fontSize="medium"
+                                            />
+                                        )}
+                                    </Button>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Button color="secondary" size="large">Department</Button>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Button
+                                        color="primary"
+                                        onClick={() => handleSort("popularity")}
+                                        size="large"
+                                    >
+                                        Popularity
+                                        {sortConfig.key === "popularity" && (
+                                            <UnfoldMoreIcon
+                                                color={sortConfig.direction === "asc" ? "inherit" : "primary"}
+                                                fontSize="medium"
+                                            />
+                                        )}
+                                    </Button>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Button color="secondary" size="large">Gender</Button>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Button color="secondary" size="large">Adult/Minor</Button>
+                                </TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <PeopleList action={action} people={sortedPeople}></PeopleList>
+
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </Grid>
+        );
+    } else if (view==="table") {
+        return (
+            <Grid container>
+                <Grid size={12}>
+                    <Header title={title} />
 
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>
-                                <Button
-                                    color="primary"
-                                    onClick={() => handleSort("name")}
-                                    size="large"
-                                >
-                                    Name
-                                    {sortConfig.key === "name" && (
-                                        <UnfoldMoreIcon
-                                            color={sortConfig.direction === "asc" ? "inherit" : "primary"}
-                                            fontSize="medium"
-                                        />
-                                    )}
-                                </Button>
-                            </TableCell>
-                            <TableCell align="right">
-                                <Button color="secondary" size="large">Department</Button>
-                            </TableCell>
-                            <TableCell align="right">
-                                <Button
-                                    color="primary"
-                                    onClick={() => handleSort("popularity")}
-                                    size="large"
-                                >
-                                    Popularity
-                                    {sortConfig.key === "popularity" && (
-                                        <UnfoldMoreIcon
-                                            color={sortConfig.direction === "asc" ? "inherit" : "primary"}
-                                            fontSize="medium"
-                                        />
-                                    )}
-                                </Button>
-                            </TableCell>
-                            <TableCell align="right">
-                                <Button color="secondary" size="large">Gender</Button>
-                            </TableCell>
-                            <TableCell align="right">
-                                <Button color="secondary" size="large">Adult/Minor</Button>
-                            </TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <PeopleList action={action} people={sortedPeople}></PeopleList>
+                    <ToggleButtonGroup
+                        orientation="horizontal"
+                        value={view}
+                        exclusive
+                        onChange={handleChange}
+                    >
+                        <ToggleButton value="list" aria-label="list">
+                            <ViewListIcon />
+                        </ToggleButton>
+                        <ToggleButton value="table" aria-label="module">
+                            <ViewModuleIcon />
+                        </ToggleButton>
+                    </ToggleButtonGroup>
 
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Grid>
-    );
+                    <Button
+                        color="primary"
+                        onClick={() => handleSort("name")}
+                        size="large"
+                    >
+                        Name
+                        {sortConfig.key === "name" && (
+                            <UnfoldMoreIcon
+                                color={sortConfig.direction === "asc" ? "inherit" : "primary"}
+                                fontSize="medium"
+                            />
+                        )}
+                    </Button>
+
+                    <Button
+                        color="primary"
+                        onClick={() => handleSort("popularity")}
+                        size="large"
+                    >
+                        Popularity
+                        {sortConfig.key === "popularity" && (
+                            <UnfoldMoreIcon
+                                color={sortConfig.direction === "asc" ? "inherit" : "primary"}
+                                fontSize="medium"
+                            />
+                        )}
+                    </Button>
+                </Grid>
+
+                <Grid container spacing={3}>
+
+                    <PeopleCards action={action} people={sortedPeople}></PeopleCards>
+
+                </Grid>
+            </Grid>
+        );
+    } else {
+        return (
+            <Grid container>
+                <Grid size={12}>
+                    <Header title={title} />
+
+                    <ToggleButtonGroup
+                        orientation="horizontal"
+                        value={view}
+                        exclusive
+                        onChange={handleChange}
+                    >
+                        <ToggleButton value="list" aria-label="list">
+                            <ViewListIcon />
+                        </ToggleButton>
+                        <ToggleButton value="table" aria-label="module">
+                            <ViewModuleIcon />
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                    <ArrowBackIcon></ArrowBackIcon>
+
+                </Grid>
+                <Typography fontSize="large">This is a secret page! </Typography><EmojiEmotionsOutlinedIcon />
+            </Grid>
+        )
+    }
 }
 export default PeopleListPageTemplate;

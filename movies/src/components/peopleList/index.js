@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 
 const PeopleList = (props) => {
     //<Person key={m.id} person={m} action={props.action} />
-    let peopleCards = props.people.map((p) => (
+    let list = props.people.map((p) => (
         <TableRow
             key={p.name}
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -21,7 +21,7 @@ const PeopleList = (props) => {
             <TableCell align="right">{p.adult ? "Minor" : "Adult"}</TableCell>
         </TableRow>
     ));
-    return peopleCards;
+    return list;
 };
 
 export default PeopleList;
