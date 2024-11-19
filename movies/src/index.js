@@ -34,8 +34,6 @@ const queryClient = new QueryClient({
 });
 
 
-//TODO MAKE FINAL DOCUMENTATION IN README
-//TODO MAKE DEMO IN VIDEO WITH VOICEOVER
 const App = () => {
     return (
         <QueryClientProvider client={queryClient}>
