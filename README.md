@@ -7,16 +7,16 @@ This repository was cloned. **Original repository:** https://github.com/zalan-to
 
 Name: *Zalán Tóth* (20102768)
 
-## Overview.
+## Overview. :monocle_face:
 
 [A brief statement on the content of this repository.]
 
 This repository contains the code for a TMDB React application made by *Zalán Tóth*. The code contains several new files, routes, endpoints etc. compared to the original repository that can be found in the beginning of the readme file. Code was cleaned up to not give unnecessary warnings, when running. This application was developed using WebStorm IDE by JetBrains.
 
 **Every segment of this assignment was attempted.**
-A lot of static endpoints were added, however they became parameterised later for pagination support. Many other parameterised endpoints were created. There is extensive linking between elements, so you could infinitly hop between pages checking the credits of a movie and hopping to a person and then looking for movies with that person etc. . Caching is done on all endpoints. New filtering options were added (namely filter on minimum rating & popularity). Sorting feature has been added to the popular people page and searching feature was added for movies. A new Watch List functionality was created. Various new MUI elements were used with new styles across the app. The app follows a responsive UI layout. For additional features pagination support was added to every relevant movie listing interface. Other additional feature is the layout chooser in the popular people page. You can choose either table listing or grid card listing. This feature has pagination support, therefore querystring support was added to handle and hold the current state of the view/layout. There are also many small improvements, which can be read in the following section, or even tiny details that doesn't worth to mention like a new favicon.
+A lot of static endpoints were added, however they became parameterised later for pagination support. Many other parameterised endpoints were created. There is extensive linking between elements, so you could infinitly hop between pages checking the credits of a movie and hopping to a person and then looking for movies with that person etc. . Caching is done on all endpoints. New filtering options were added (namely filter on minimum rating & popularity). Sorting feature has been added to the popular people page and searching feature was added for movies. A new Watch List functionality was created. Various new MUI elements were used with new styles across the app. The app follows a responsive UI layout. For additional features pagination support was added to every relevant movie listing interface. Other additional feature is the layout chooser in the popular people page. You can choose either table listing or grid card listing. This feature has pagination support, therefore querystring support was added to handle and hold the current state of the view/layout. There are also many small improvements, which can be read in the following section, or even tiny details that doesn't worth mentioning like a new favicon.
 
-### Features.
+### Features. :sunglasses:
 [ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
 
  
@@ -89,7 +89,7 @@ There is no need to install other npm packages to run this application other tha
 To run the app:
 `npm start`
 
-## API endpoints.
+## API endpoints. :nerd_face:
 
 [ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
 
@@ -105,10 +105,10 @@ To run the app:
 + Searching for movies based on title - `search/movie&query=${title}`
 + Getting the movie credits for a person - `person/${id}/movie_credits`
 
-## Routing.
+## Routing. :globe_with_meridians:	
 
 [ List the __new routes__ supported by your app and state the associated page.]
-#### Movie routes
+#### Movie routes :movie_camera:
 + `/movies/discover` - Discover movies (same as home)
 + `/movies/discover/page/:page` - Discover movies with current page
 + `/movies/watchlist` - List of movies that contains the ones that the user wants to watch!
@@ -124,7 +124,7 @@ To run the app:
 + `/movies/search/:title` - Result of movie search
 + `/movies/search/:title/page/:page` - Result of movie search with pagination support for the result
 + `/movies/:id/credits` - Provides credits for a movie
-#### People routes
+#### People routes :person_red_hair:
 + `/people/popular` - Provides list of popular people with sorting support with 2 layouts for listing
 + `/people/popular/page/:page` - Provides list of popular people (_||_) with pagination support
 + `/people/:id` - Provides details about a person
@@ -132,7 +132,7 @@ To run the app:
 
 [If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
 
-## Independent learning (If relevant).
+## Independent learning (If relevant). :star:
 
 Itemize the technologies/techniques you researched independently and adopted in your project, 
 i.e. aspects not covered in the lectures/labs. Include the source code filenames that illustrate these 
@@ -141,6 +141,7 @@ i.e. aspects not covered in the lectures/labs. Include the source code filenames
 + I used a simple way to sort data in the popular people list table. Source that helped me create it: https://www.selbekk.io/blog/creating-sortable-tables-with-react
 + TMDB API was used extensively: https://developer.themoviedb.org/reference/intro/getting-started
 + Material UI / MUI was used extensively: https://mui.com/material-ui/ 
++ WebStorm IDE boosted the development speed with helpful features and advices :smile:
 
 
 
