@@ -141,7 +141,7 @@ i.e. aspects not covered in the lectures/labs. Include the source code filenames
 + I used a simple way to sort data in the popular people list table. Source that helped me create it: https://www.selbekk.io/blog/creating-sortable-tables-with-react
 + TMDB API was used extensively: https://developer.themoviedb.org/reference/intro/getting-started
 + Material UI / MUI was used extensively: https://mui.com/material-ui/ 
-+ WebStorm IDE boosted the development speed with helpful features and advices :smile:
++ WebStorm IDE boosted the development speed with its helpful default features :smile:
 
 
 
