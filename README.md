@@ -11,14 +11,71 @@ Name: Zalán Tóth (20102768)
 
 [A brief statement on the content of this repository.]
 
+Every segment of this assignment was attempted. Various new MUI elements were used.
+
 ### Features.
 [ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
+
  
-+ Feature 1
-+ Feature 2
-+ Feature 3
-+ etc
-+ etc
+1. Favorites feature extended
+    - Extended to be able to remove a movie from the list from anywhere in the app by clicking at the heart icon again
+2. Watch List / To Watch feature
+    - User can add movies to the watch list
+    - The icon reacts to the click, and disabled itself
+    - Removal feature inside the watch list
+3. Movie Details
+    - Production Companies added as extra information
+    - Provides link to similar movies (has stateful and parameterised version, explanation in next section)
+    - Provides link to cast & credits
+4. Similar Movies
+    - Returns a list of similar movies to a specific movie
+    - There are 2 ways to access similar movies (I did this for demonstrational purposes)
+        - Stateful way: pass the specific movie in a state from the movie details (it will lead to /similar) it is not shareable
+        - Parameterised way: pass the specific movie in the link through a parameter (it uses the movies/:id/similar link) it is shareable
+5. Discover Movies - HomePage
+    - Support was added for pagination (movies/discover/page/:page)
+6. Upcoming Movies 
+    - Provides a list of upcoming movies
+    - Pagination Support
+7. Trending Movies
+    - Provides a list of trending movies today
+    - Pagination Support
+8. Playing Movies
+    - Provides a list of movies currently playing
+    - Pagination Support
+9. Latest Movie
+    - Returns the latest added movie to the TMDB database
+10. Popular People List
+    - Sorting support for Name and Popularity sorting
+        - Clicking on the blue table headings will result in sorting, it's responsive and will react to the click
+    - Changable layout support
+        - First/Default layout is a table listing
+        - Second layout is a card grid layout with images
+        - The layout is saved as a querystring, so it'll know how to show the other page properly when you switch between pages
+    - The name of the person is clicable and will lead to the details of the person
+    - Querystring support for storing the sate of the current view
+    - Pagination Support
+11. Person Details
+    - Provides details about the given person (name, bio, image ... )
+    - Has link/button to access other movies with the same person (Movie credits)
+12. Movies with a specific person
+    - Provides list of movies that the specified person can be found in!
+13. Caching Support
+    - The app has overall caching support for all features, so basically everything is cached (including parameterised links and pagination)
+14. Filtering
+    - The filter card was extended to provide 2 new filters
+        - Minimum Rating filter: checks for movies with the specified rating or above
+        - Popularity filter: checks for either all (default state), popular or hyped up movies
+             - This feature checks the popularity number, the way it was implemented was through 3 options with radio forms using MUI, but:
+             - Support was written to actually support a number input from the card out of the box, so passing the following values from the form are allowed: ["all","popular","hype",number], the code will handle it properly in all cases.
+    - Yes, this feature is responsive
+15. Sorting
+    - The popular people page has sorting feature where you can sort by name (alphabetically ascending and descending) or popularity (numerically ascending and descending)
+    - Yes, this feature is responsive
+16. Searching
+    - You can search for movies with a given name.
+    - The search utilizes TMDBs querying to find the matching movies
+    - Pagination Support for the results
 
 ## Setup requirements.
 
